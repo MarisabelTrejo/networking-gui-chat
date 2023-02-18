@@ -80,10 +80,12 @@ class Client:
     def receive(self):
         while self.running:
             try:
+                # Decod the messages sent
                 message = self.sock.recv(1024).decode("utf-8")
                 if message == "NICK":
                     self.sock.send(self.nickname.encode("utf-8"))
                 else:
+                    # Append the message at the end
                     if self.gui_done:
                         self.text_area.config(state="normal")
                         self.text_area.insert('end', message)

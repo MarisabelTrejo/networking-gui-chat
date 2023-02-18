@@ -62,7 +62,7 @@ def recieve():
         thread = threading.Thread(target= handle, args=(client,))
         thread.start()
 
-# meow
+# display this message if server is listening
 print("Server Running")
 recieve()
 
